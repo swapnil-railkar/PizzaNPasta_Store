@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Pizza</string>
+    <string name="create_order">Create Order</string>
+    <string name="create_order_title">Create Order Title</string>
+    <string name="action_share">Share</string>
+    <string name="home_tab">Home</string>
+    <string name="pizza_tab">Pizza</string>
+    <string name="pasta_tab">Pasta</string>
+    <string name="stores_tab">Stores</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Top Fragment</string>
+    <string-array name="pizza">
+        <item>Pizza 1</item>
+        <item>Pizza 2</item>
+    </string-array>
+    <string-array name="pasta">
+        <item>Pasta 1</item>
+        <item>Pasta 2</item>
+    </string-array>
+    <string-array name="store">
+        <item>Store 1</item>
+        <item>Store 2</item>
+    </string-array>
+
+    <string name="company_name">Pizza-n-Pastas</string>
+    <string name="restaurants_image">Restaurant Image</string>
+    <string name="hello_text">Some random text about introduction of the store...</string>
+    <string name="order_name_hint">Enter Name</string>
+    <string name="order_detail_hint">Enter Order</string>
+
+    <string name="user_name">spot@Pizza.com</string>
+
+    <string name="nav_profile">Profile</string>
+    <string name="nav_report_issue">Report Problem</string>
+    <string name="nav_help">Help</string>
+    <string name="nav_feedback">Give Us Feedback</string>
+
+    <string name="nav_open">Open Navigation</string>
+    <string name="nav_close">Close Navigation</string>
+</resources>
