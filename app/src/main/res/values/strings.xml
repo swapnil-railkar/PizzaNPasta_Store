@@ -24,9 +24,9 @@
 
     <string name="company_name">Pizza-n-Pastas</string>
     <string name="restaurants_image">Restaurant Image</string>
-    <string name="hello_text">Some random text about introduction of the store...</string>
-    <string name="order_name_hint">Enter Name</string>
-    <string name="order_detail_hint">Enter Order</string>
+    <string name="hello_text">Some random text about introduction of the store…</string>
+    <string name="user_address_hint">Enter Address</string>
+    <string name="user_phone_number">Enter Contact number</string>
 
     <string name="user_name">spot@Pizza.com</string>
 

@@ -51,14 +51,48 @@
             android:padding="16dp">
 
             <EditText
+                android:id="@+id/user_address_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/order_name_hint" />
+                android:hint="@string/user_address_hint" />
 
             <EditText
+                android:id="@+id/user_number_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/order_detail_hint" />
+                android:hint="@string/user_phone_number"
+                android:inputType="number"
+                android:maxLength="10"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bill_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total : "
+                    android:textStyle="bold"
+                    android:textSize="25sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total_cost"
+                    android:text="cost"
+                    android:textSize="25sp"
+                    android:layout_gravity="right"/>
+            </LinearLayout>
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
