@@ -24,12 +24,18 @@ public class StoreDetail extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        /*
+        Get information about selected store.
+         */
         int img_id = (Integer) getIntent().getExtras().get(EXTRA_STORE_ID);
         int img_res = Store.stores[img_id].getImageId();
         String name = Store.stores[img_id].getName();
         String[] pizzaArr= Store.stores[img_id].getPizzaArr();
         String[] pastaArr= Store.stores[img_id].getPastaArr();
 
+        /*
+        Populate view with information about selected item
+         */
         ImageView imageView = (ImageView) findViewById(R.id.store_img);
         imageView.setImageDrawable(ContextCompat.getDrawable(this, img_res));
         imageView.setContentDescription(name);
@@ -37,6 +43,9 @@ public class StoreDetail extends AppCompatActivity {
         TextView storeNameTv = (TextView) findViewById(R.id.store_name);
         storeNameTv.setText(name);
 
+        /*
+        Listeners for clicks on textView.
+         */
         final TextView firstPizzaTv=(TextView) findViewById(R.id.pizzaOne);
         firstPizzaTv.setText(pizzaArr[0]);
         firstPizzaTv.setOnClickListener(new View.OnClickListener() {

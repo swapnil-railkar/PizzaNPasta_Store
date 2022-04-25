@@ -55,6 +55,9 @@ public class TopFragment extends Fragment {
         }
     }
 
+    /*
+    Inflates home tabs view and returns it.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

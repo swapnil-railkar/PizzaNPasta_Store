@@ -60,11 +60,21 @@ public class StoreFragment extends Fragment {
         }
     }
 
+    /*
+   For more detailed comments refer PizzaFragment.java class
+    */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /*
+        Recycler view object which inflates the View to return it when called.
+         */
         RecyclerView store_recyclerView=(RecyclerView)
                 inflater.inflate(R.layout.fragment_store,container,false);
+
+         /*
+        get names and images of all stores from Store.class class
+         */
         String[] store_name=new String[Store.stores.length];
         for(int i=0;i<store_name.length;i++)
         {

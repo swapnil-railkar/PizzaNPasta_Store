@@ -22,6 +22,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+/*
+Implementing NavigationView.OnNavigationItemSelectedListener interface means that your activity can
+respond to the user clicking options in the navigation drawer.
+ */
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public ShareActionProvider shareActionProvider;
     private Object ShareActionProvider;
@@ -31,16 +35,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*
+        Initializing toolbar which replaces default Actionbar.
+         */
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        /*
+        We’re using support fragments,so we need to pass our adapter a reference to the
+        support fragment manager.
+         */
         SectionPagerAdapter sectionPagerAdapter = new SectionPagerAdapter(getSupportFragmentManager());
+
+         /*
+        This attaches the FragmentPagerAdapter we created to the ViewPager.
+         */
         ViewPager viewPager = (ViewPager) findViewById(R.id.ViewPager);
         viewPager.setAdapter(sectionPagerAdapter);
 
+        /*
+        Attach the ViewPager to the TabLayout.
+         */
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+       /*
+       This adds the burger icon to your toolbar.
+        */
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle actionBarDrawerToggle = new
                 ActionBarDrawerToggle(this, drawerLayout, toolbar,
@@ -48,6 +70,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        /*
+        This registers the activity as a listener on the navigation view so it will be
+        notified if the user clicks on an item.
+         */
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -61,6 +87,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onCreateOptionsMenu(menu);
     }
 
+    /*
+    This method is called after pressing 'Create Order' button.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -74,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    /*
+    This method is called after pressing 'Share' button on Toolbar.
+     */
     private void setShareActionProvider(String text) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
@@ -81,6 +113,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         shareActionProvider.setShareIntent(intent);
     }
 
+    /*
+    Starts activity according to the option selected by user.
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -105,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    /*
+    This method is called after we press back button.
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -122,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super(fm);
         }
 
+        /*
+        Title of pages displayed on tab layout.
+         */
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
@@ -138,6 +179,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return super.getPageTitle(position);
         }
 
+        /*
+        Specify which fragment should appear on each page.
+         */
         @NonNull
         @Override
         public Fragment getItem(int position) {
@@ -154,6 +198,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return null;
         }
 
+        /*
+        Returns total number of pages in tab layout.
+         */
         @Override
         public int getCount() {
             return 4;

@@ -32,17 +32,29 @@ public class OrderActivity extends AppCompatActivity {
         ActionBar actionBar=getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        /*
+        Get instance of Realm object.
+         */
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
+        /*
+        Get the list of food items selected by user.
+         */
         RealmResults<FoodItem> foodItemsList = realm.where(FoodItem.class).findAll();
 
+        /*
+        Populate recyclerView with those items.
+         */
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.bill_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         final BillAdapter adapter = new BillAdapter(getApplicationContext(),foodItemsList);
         recyclerView.setAdapter(adapter);
 
+        /*
+        Listener if list changes
+         */
         foodItemsList.addChangeListener(new RealmChangeListener<RealmResults<FoodItem>>() {
             @Override
             public void onChange(RealmResults<FoodItem> foodItems) {
@@ -53,6 +65,9 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        Total cost of all food items selected by user.
+         */
         TextView totalCost = (TextView) findViewById(R.id.total_cost);
         long sum = (long)foodItemsList.sum("foodPrice");
         totalCost.setText(String.valueOf(sum));

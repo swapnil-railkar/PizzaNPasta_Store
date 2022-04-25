@@ -2,6 +2,10 @@ package com.example.pizza;
 
 import io.realm.RealmObject;
 
+/*
+Realm is an open source object database management system. We are going to store FoodItem.class
+objects in Realm.
+ */
 public class FoodItem extends RealmObject {
     String foodName;
     int foodPrice;

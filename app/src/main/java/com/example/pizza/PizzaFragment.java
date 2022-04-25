@@ -60,26 +60,49 @@ public class PizzaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /*
+        Recycler view object which inflates the View to return it when called.
+         */
         RecyclerView pizza_recyclerView = (RecyclerView)
                 inflater.inflate(R.layout.fragment_pizza, container, false);
+
+        /*
+        get names of all pizzas from Pizza.class class
+         */
         String[] pizzaName = new String[Pizza.pizza.length];
         for (int i = 0; i < pizzaName.length; i++) {
             pizzaName[i] = Pizza.pizza[i].getName();
         }
 
+        /*
+        get image ids of all pizzas from Pizza.class class
+         */
         int[] pizzaImages = new int[Pizza.pizza.length];
         for (int i = 0; i < pizzaImages.length; i++) {
             pizzaImages[i] = Pizza.pizza[i].getImageResourceId();
         }
 
+        /*
+        Pass the images and names to adapter.
+         */
         CaptionedImageAdapter captionedImageAdapter = new CaptionedImageAdapter(pizzaName, pizzaImages);
         pizza_recyclerView.setAdapter(captionedImageAdapter);
+
+        /*
+        Specifies count of views in a single row.
+         */
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         pizza_recyclerView.setLayoutManager(gridLayoutManager);
 
+        /*
+        To respond clicks
+         */
         captionedImageAdapter.setListener(new CaptionedImageAdapter.Listener() {
             @Override
             public void onClick(int position) {
+                /*
+                Intent is a messaging object you can use to request an action from another app component.
+                 */
                 Intent intent=new Intent(getActivity(),PizzaDetail.class);
                 intent.putExtra(PizzaDetail.EXTRA_PIZZA_ID, position);
                 getActivity().startActivity(intent);

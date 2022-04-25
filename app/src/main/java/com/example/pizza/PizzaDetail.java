@@ -33,12 +33,18 @@ public class PizzaDetail extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        int pizzaId = (Integer) getIntent().getExtras().get(EXTRA_PIZZA_ID);
+         /*
+        Get information about selected food item.
+         */
+         int pizzaId = (Integer) getIntent().getExtras().get(EXTRA_PIZZA_ID);
         final String pizza_name = Pizza.pizza[pizzaId].getName();
         int pizza_img = Pizza.pizza[pizzaId].getImageResourceId();
         final int pizza_price= Pizza.pizza[pizzaId].getPrice();
         final String pizza_provider= Pizza.pizza[pizzaId].getProvider();
 
+        /*
+        Populate view with information about selected item
+         */
         TextView pizzaNameTv = (TextView) findViewById(R.id.pizza_text);
         pizzaNameTv.setText(pizza_name);
 
@@ -49,6 +55,9 @@ public class PizzaDetail extends AppCompatActivity {
         TextView pizzaPriceTv = (TextView) findViewById(R.id.pizzaPriceText);
         pizzaPriceTv.setText("Rs. "+pizza_price);
 
+        /*
+        On clicking "Add To Cart" button , save the item's details in Realm object created earlier.
+         */
         Button orderButton = (Button) findViewById(R.id.orderPizza);
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override

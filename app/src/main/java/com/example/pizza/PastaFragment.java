@@ -60,11 +60,22 @@ public class PastaFragment extends Fragment {
         }
     }
 
+    /*
+    For more detailed comments refer PizzaFragment.java class
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+         /*
+        Recycler view object which inflates the View to return it when called.
+         */
         RecyclerView pasta_recyclerView=
                 (RecyclerView)inflater.inflate(R.layout.fragment_pasta,container,false);
+
+        /*
+        get names and images of all stores from Pasta.class class
+         */
         String[] pasta_name=new String[Pasta.pastas.length];
         for (int i=0;i<pasta_name.length;i++)
         {

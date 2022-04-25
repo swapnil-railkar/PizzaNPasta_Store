@@ -32,13 +32,18 @@ public class PastaDetail extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        /*
+        Get information about selected food item.
+         */
         int pasta_id = (Integer) getIntent().getExtras().get(EXTRA_PASTA_ID);
         int past_res = Pasta.pastas[pasta_id].getImageResourceId();
         final String pasta_name = Pasta.pastas[pasta_id].getName();
         final int price= Pasta.pastas[pasta_id].getPrice();
         String provider= Pasta.pastas[pasta_id].getProvider();
 
-
+        /*
+        Populate view with information about selected item
+         */
         TextView pastaNameTv = (TextView)findViewById(R.id.pasta_text);
         pastaNameTv.setText(pasta_name);
 
@@ -49,6 +54,9 @@ public class PastaDetail extends AppCompatActivity {
         TextView pastaPriceTv = (TextView) findViewById(R.id.pastaPriceText);
         pastaPriceTv.setText("Rs. "+price);
 
+        /*
+        On clicking "Add To Cart" button , save the item's details in Realm object created earlier.
+         */
         Button orderButton = (Button) findViewById(R.id.orderPasta);
         orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
